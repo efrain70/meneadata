@@ -24,6 +24,9 @@ setup(
     install_requires=[
         'six',
     ],
+    entry_points={
+        "console_scripts": ['meneadata = meneadata.meneadata:main']
+    },
     license="GNU Affero General Public License",
     zip_safe=False,
     keywords=['meneadata'],
