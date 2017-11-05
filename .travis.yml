@@ -12,7 +12,7 @@ jobs:
       script: tox -e style_guide
       script: tox -e todo
       script: tox -e flake8
-      scritp: tox -e code_complexity
+      script: tox -e code_complexity
 
     - stage: Packing
       script: tox -e packages
