@@ -5,7 +5,7 @@
 from setuptools import setup, find_packages
 
 
-with open("README.rst") as readme, open("CHANGELOG.rst") as changelog:
+with open("README.md") as readme, open("CHANGELOG.md") as changelog:
     LONG_DESCRIPTION = readme.read() + 2 * '\n' + changelog.read()
 
 setup(
