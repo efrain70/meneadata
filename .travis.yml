@@ -9,18 +9,5 @@ install: pip install tox-travis
 jobs:
   include:
     - stage: Metris
-      script:
-      - tox -e style_guide
-      - tox -e todo
-      - tox -e flake8
-      - tox -e code_complexity
+      script: tox -e style_guide
 
-    - stage: Packing
-      script:
-      - tox -e packages
-      - tox -e doc
-
-    - stage: Testing
-      - tox -e coverage
-      - tox -e unit
-      - tox -e integration
