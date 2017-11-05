@@ -9,5 +9,5 @@ install: pip install tox-travis
 jobs:
   include:
     - stage: Metris
-      script: tox -e style_guide
+    - script: tox -e style_guide
 
