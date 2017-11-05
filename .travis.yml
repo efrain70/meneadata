@@ -6,8 +6,4 @@ python:
   - "3.5"
   - "3.6"
 install: pip install tox-travis
-jobs:
-  include:
-    - stage: Metris
-    script: tox -e style_guide
-
+script: tox
