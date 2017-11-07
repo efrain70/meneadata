@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+import pytest
+
 from meneadata.page.meneo import Meneo
 
 
@@ -18,3 +20,7 @@ class TestMeneo(object):
 
     def test_iterator(self, valid_meneo):
         assert ['24', 'Ruby off the Rails', 'paco'] == [x for x in valid_meneo]
+
+    def test_next(self, valid_meneo):
+        iterator = next(valid_meneo)
+        assert ['24', 'Ruby off the Rails', 'paco'] == [x for x in iterator]
