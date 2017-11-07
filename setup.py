@@ -22,6 +22,8 @@ setup(
         'setuptools_scm',
     ],
     install_requires=[
+        'bs4',
+        'requests',
         'six',
     ],
     entry_points={
