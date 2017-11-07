@@ -10,3 +10,7 @@ class TestPage(object):
             assert meneo.title == 'Ruby off the Rails_' + str(index)
             assert meneo.votes == str(index)
             assert meneo.author == 'paco_' + str(index)
+
+    def test_empty_page(self, empty_page):
+        meneos = [meneo for meneo in empty_page]
+        assert len(meneos) == 0

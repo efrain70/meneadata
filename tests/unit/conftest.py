@@ -1022,3 +1022,10 @@ def valid_page():
     bs_tag = bs4.BeautifulSoup(page_str, "html.parser")
     page = Page(bs_tag)
     return page
+
+@pytest.fixture()
+def empty_page():
+    page_str = PAGE.format(meneos='', promoted='')
+    bs_tag = bs4.BeautifulSoup(page_str, "html.parser")
+    page = Page(bs_tag)
+    return page
