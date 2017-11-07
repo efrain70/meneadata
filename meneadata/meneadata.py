@@ -63,15 +63,8 @@ def main():
         logger.info('Starting in page: {}'.format(str(meneadata.current)))
 
         for page in meneadata:
-            n_meneos = 0
-
             for meneo in page:
                 writer.writerow([value for value in meneo])
-                n_meneos += 1
-
-            # Page is emtpy
-            if n_meneos == 0:
-                break
 
         logger.info('Last page found: {}'.format(str(meneadata.current - 1)))
 
