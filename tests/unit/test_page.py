@@ -14,3 +14,6 @@ class TestPage(object):
     def test_empty_page(self, empty_page):
         meneos = [meneo for meneo in empty_page]
         assert len(meneos) == 0
+
+    def test_len(self, valid_page):
+        assert len(valid_page) == 10

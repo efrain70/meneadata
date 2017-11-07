@@ -10,10 +10,8 @@ class Page(Iterator):
 
     def __init__(self, bs_tag):
         self.bs_tag = bs_tag
-        self.meneo_divs = self._get_list_meneos_html()
-
-    def _get_list_meneos_html(self):
-        return iter(self.bs_tag.find_all("div", class_=self.meneo_class))
+        self.meneo_divs = self.bs_tag.find_all("div", class_=self.meneo_class)
+        self._meneo_divs_iteartor = iter(self.meneo_divs)
 
     def __iter__(self):
         return self
@@ -22,7 +20,10 @@ class Page(Iterator):
         return Meneo(bs_tag)
 
     def __next__(self):
-        bs_tag = next(self.meneo_divs)
+        bs_tag = next(self._meneo_divs_iteartor)
         return self.create_meneo(bs_tag)
+
+    def __len__(self):
+        return len(self.meneo_divs)
 
     next = __next__  # Python 2
