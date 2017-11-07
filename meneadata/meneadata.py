@@ -6,8 +6,7 @@ import csv
 import logging
 import sys
 
-from .page.menedata import MeneaData
-from .page.meneo import Meneo
+from .page import Meneo, MeneaData
 from .version import version as __version__
 
 

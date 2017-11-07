@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-import pytest
-
-from meneadata.page.meneo import Meneo
+from meneadata.page import Meneo
 
 
 class TestMeneo(object):

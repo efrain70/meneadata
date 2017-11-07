@@ -2,7 +2,7 @@
 
 import mock
 
-from meneadata.page.menedata import MeneaData
+from meneadata.page import MeneaData, Page
 
 
 @mock.patch('requests.get')
@@ -14,6 +14,7 @@ class TestMeneaData(object):
         n_pages = 0
         n_meneos = 0
         for page_i, page in enumerate(data):
+            assert isinstance(page, Page)
             n_pages += 1
             for meneo_i, meneo in enumerate(page):
                 n_meneos += 1
