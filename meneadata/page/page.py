@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-from collections.abc import Iterator
+from six import Iterator
 
 from .meneo import Meneo
 
-class MainPage(Iterator):
+
+class Page(Iterator):
 
     meneo_class = "news-summary"
 
@@ -24,3 +25,4 @@ class MainPage(Iterator):
         bs_tag = next(self.meneo_divs)
         return self.create_meneo(bs_tag)
 
+    next = __next__  # Python 2
