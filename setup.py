@@ -22,8 +22,13 @@ setup(
         'setuptools_scm',
     ],
     install_requires=[
+        'bs4',
+        'requests',
         'six',
     ],
+    entry_points={
+        "console_scripts": ['meneadata = meneadata.meneadata:main']
+    },
     license="GNU Affero General Public License",
     zip_safe=False,
     keywords=['meneadata'],
