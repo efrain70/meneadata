@@ -20,14 +20,9 @@ class MeneaData(Iterator):
         self.last_page = last_page
 
     def create_page(self, url):
-        try:
-            response = requests.get(url)
-        except Exception as e:
-            # Todo
-            raise e
-        else:
-            bs_tag = BeautifulSoup(response.text, "html.parser")
-            return Page(bs_tag)
+        response = requests.get(url)
+        bs_tag = BeautifulSoup(response.text, "html.parser")
+        return Page(bs_tag)
 
     def __iter__(self):
         return self
