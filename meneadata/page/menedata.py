@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from six import Iterator
-
 import requests
+from six import Iterator
 from bs4 import BeautifulSoup
 
 from .page import Page
@@ -39,16 +38,17 @@ class MeneaData(Iterator):
 
         url = '{}{}'.format(self.main_url, self.go_page)
 
-        try:
-            logger.debug('Reading page: {}'.format(self.current))
-            page = self.create_page(url.format(self.current))
-            logger.debug('Finished page: {}'.format(self.current))
+        logger.debug('Reading page: {}'.format(self.current))
+        page = self.create_page(url.format(self.current))
+        logger.debug('Finished page: {}'.format(self.current))
 
-        except Exception as e:
-            # Todo
+        if len(page) == 0:
+            logger.debug('Page: {} is empty.'.format(self.current))
+
+            # Empty page is the last one
             raise StopIteration
-        else:
-            self.current += 1
-            return page
+
+        self.current += 1
+        return page
 
     next = __next__  # Python 2

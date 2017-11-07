@@ -17,3 +17,4 @@ class TestPage(object):
 
     def test_len(self, valid_page):
         assert len(valid_page) == 10
+

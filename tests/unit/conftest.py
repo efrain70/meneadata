@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
+import mock
 import pytest
+import requests
 
 import bs4
 
@@ -1000,9 +1002,22 @@ PROMOTED = """
 """
 
 
-@pytest.fixture()
+def create_meneo(author, title, votes):
+    return MENEO.format(author=author, title=title, votes=votes)
+
+
+def create_page(author, title, n_meneos=10):
+    meneos = [create_meneo(author='{}_{}'.format(author, meneo_i),
+                           title='{}_{}'.format(title, meneo_i),
+                           votes=str(meneo_i))
+              for meneo_i in range(n_meneos)]
+
+    return PAGE.format(meneos=''.join(meneos), promoted='')
+
+
+@pytest.fixture(scope='session')
 def valid_meneo():
-    meneo_str = MENEO.format(author='paco',
+    meneo_str = create_meneo(author='paco',
                              title='Ruby off the Rails',
                              votes='24')
     bs_tag = bs4.BeautifulSoup(meneo_str, "html.parser")
@@ -1010,22 +1025,43 @@ def valid_meneo():
     return meneo
 
 
-@pytest.fixture()
+@pytest.fixture(scope='session')
 def valid_page():
-    n_meneos = 10
-    meneos = [MENEO.format(author='paco_{}'.format(meneo_i),
-                           title='Ruby off the Rails_{}'.format(meneo_i),
-                           votes=str(meneo_i))
-              for meneo_i in range(n_meneos)]
-
-    page_str = PAGE.format(meneos=''.join(meneos), promoted='')
+    page_str = create_page(author='paco',
+                           title='Ruby off the Rails',
+                           n_meneos=10)
     bs_tag = bs4.BeautifulSoup(page_str, "html.parser")
     page = Page(bs_tag)
     return page
 
-@pytest.fixture()
+
+@pytest.fixture(scope='session')
 def empty_page():
-    page_str = PAGE.format(meneos='', promoted='')
+    page_str = create_page(author='',
+                           title='',
+                           n_meneos=0)
     bs_tag = bs4.BeautifulSoup(page_str, "html.parser")
     page = Page(bs_tag)
     return page
+
+
+@pytest.fixture(scope='session')
+def empty_page_response():
+    page_str = create_page(author='',
+                           title='',
+                           n_meneos=0)
+    return mock.MagicMock(text=page_str, spec=requests.Response)
+
+
+@pytest.fixture(scope='session')
+def list_of_pages(empty_page_response):
+    n_pages = 10
+
+    pages = [create_page(author='author_{}'.format(index),
+                         title='title_{}'.format(index))
+             for index in range(n_pages)]
+
+    pages = [mock.MagicMock(text=page, spec=requests.Response)
+            for page in pages]
+    pages.append(empty_page_response)
+    return pages
