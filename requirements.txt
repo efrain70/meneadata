@@ -1,5 +1,7 @@
 # library requirements
 six
+bs4
+requests
 
 # documentation requirements
 Sphinx>=1.5.3
