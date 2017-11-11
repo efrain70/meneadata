@@ -4,11 +4,17 @@
 
 ## Table of contents
 
-1. [Introducción](#intro)
-2. [Instalación](#instalación)
-3. [Cómo usarlo](#como-usarlo)
-4. [Colaborar](#colaborar)
-5. [Autoría](#autoria)
+1. [Introducción](#introduction)
+2. [Instalación](#installation)
+3. [Cómo usarlo](#usage)
+4. [Colaborar](#contributing)
+5. [Autoría](#authors)
 6. [TODO](#todo)  
 
-## Introducción  <a name="intro"></a>
+## Introducción <a name="introduction"></a>
+## Instalación <a name="installation"></a>
+## Cómo usarlo <a name="usage"></a>
+## Colaborar  <a name="contributing"></a>
+## Autoría  <a name="authors"></a> 
+## Siguientes pasos <a name="TODO"></a>
+
