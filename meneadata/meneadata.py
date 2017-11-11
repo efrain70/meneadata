@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""meneadata - MeneaData módulo principal para el commando."""
+
 from __future__ import print_function
 
 import argparse
@@ -14,6 +16,13 @@ logger = logging.getLogger('Meneadata')
 
 
 def main():
+    """Ejecuta el comando.
+
+    En base a los parametros aportados por el usuario, prepara el sistema de
+    logging y los ficheros de salida para los datos en formato CSV y
+    opcionalmente dónde guardar las salidas del output.
+
+    """
     parser = argparse.ArgumentParser(prog='meneadata',
                                      description='MeneaData command')
     parser.add_argument('-f', nargs='?',
