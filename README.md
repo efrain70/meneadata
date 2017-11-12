@@ -77,7 +77,7 @@ Después de la instalación se dispone de un comando 'meneadata' con el siguient
 
 ## Colaborar  <a name="contributing"></a>
 
-
+Este proyecto está abierto a mejoras, cambios, propuestas y aportaciones. ¡Colabora!
 
 ## Autoría  <a name="authors"></a> 
 
@@ -87,4 +87,10 @@ Desarrolladores:
 
 
 ## Siguientes pasos <a name="TODO"></a>
+
+* Añadir nuevos campos de los meneos
+* Añadir opciones para el comando 
+* Introducir los comentarios de cada meneo en el dataset
+* Poder exportar en varios formatos
+* Selección de los atributos a exportar
 
