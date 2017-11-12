@@ -75,8 +75,16 @@ Después de la instalación se dispone de un comando 'meneadata' con el siguient
 
 `meneadata -f c://users/User/MyData.csv -v -log c://users/User/MyLog.log`
 
-
 ## Colaborar  <a name="contributing"></a>
+
+
+
 ## Autoría  <a name="authors"></a> 
+
+Desarrolladores:
+
+* Efraín Lima Miranda <efrain70@gmail.com>
+
+
 ## Siguientes pasos <a name="TODO"></a>
 
