@@ -3,10 +3,6 @@ six
 bs4
 requests
 
-# documentation requirements
-Sphinx>=1.5.3
-sphinx_rtd_theme>=0.2.4
-
 # build requirements
 wheel>=0.30.0a0
 setuptools>=34.3.3
