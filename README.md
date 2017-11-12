@@ -56,6 +56,26 @@ Y usando <a href="https://pip.pypa.io/en/stable/" target="_blank"> PIP</a>, conf
 `$ pip install -e meneadata`
 
 ## Cómo usarlo <a name="usage"></a>
+
+Después de la instalación se dispone de un comando 'meneadata' con el siguiente formato:
+
+`meneadata -f path_fichero.csv [-v] [-s primera página] [-l última pagina] [-log fichero de log] [-v nivel output]` 
+
+### Ejemplos
+
+* Simple, imprime la salida en el fichero c://users/User/MyData.csv
+
+`meneadata -f c://users/User/MyData.csv`
+
+* Extrae los datos desde la página 3 a la 1000
+
+`meneadata -f c://users/User/MyData.csv -s 3 -l 1000`
+
+* Cambia el nivel de los mensajes de logging  y los guarda en un fichero local.
+
+`meneadata -f c://users/User/MyData.csv -v -log c://users/User/MyLog.log`
+
+
 ## Colaborar  <a name="contributing"></a>
 ## Autoría  <a name="authors"></a> 
 ## Siguientes pasos <a name="TODO"></a>
