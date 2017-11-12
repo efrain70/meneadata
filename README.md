@@ -10,6 +10,8 @@
     3. [MeneaData](#meneadata)
 2. [Instalación](#installation)
 3. [Cómo usarlo](#usage)
+    1. [Ejemplos](#examples)
+    2. [Dataset](#dataset)
 4. [Colaborar](#contributing)
 5. [Autoría](#authors)
 6. [TODO](#todo)  
@@ -61,7 +63,7 @@ Después de la instalación se dispone de un comando 'meneadata' con el siguient
 
 `meneadata -f path_fichero.csv [-v] [-s primera página] [-l última pagina] [-log fichero de log] [-v nivel output]` 
 
-### Ejemplos
+### Ejemplos <a name="examples"></a>
 
 * Simple, imprime la salida en el fichero c://users/User/MyData.csv
 
@@ -74,6 +76,18 @@ Después de la instalación se dispone de un comando 'meneadata' con el siguient
 * Cambia el nivel de los mensajes de logging  y los guarda en un fichero local.
 
 `meneadata -f c://users/User/MyData.csv -v -log c://users/User/MyLog.log`
+
+### Estructura Dataset <a name="dataset"></a>
+
+El fichero CSV (Comma=Separated Values) obtenido se compone de los siguientes atributos (columnas):
+
+* votes: número de meneos
+* title: título del meneo
+* author: autor del meneo
+* n_comments: número de comentarios
+* karma: karma del meneo
+* timestamp: timestamp de la publicación del meneo
+
 
 ## Colaborar  <a name="contributing"></a>
 
