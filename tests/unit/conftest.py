@@ -1011,7 +1011,11 @@ def create_meneo(author, title, votes, n_comments, timestamp, karma):
 def create_page(author, title, n_meneos=10):
     meneos = [create_meneo(author='{}_{}'.format(author, meneo_i),
                            title='{}_{}'.format(title, meneo_i),
-                           votes=str(meneo_i))
+                           votes=str(meneo_i),
+                           n_comments=str(meneo_i),
+                           karma=str(meneo_i),
+                           timestamp=str(meneo_i),
+                           )
               for meneo_i in range(n_meneos)]
 
     return PAGE.format(meneos=''.join(meneos), promoted='')
@@ -1041,6 +1045,7 @@ def no_comments_meneo():
     bs_tag = bs4.BeautifulSoup(meneo_str, "html.parser")
     meneo = Meneo(bs_tag)
     return meneo
+
 
 @pytest.fixture(scope='session')
 def valid_page():
