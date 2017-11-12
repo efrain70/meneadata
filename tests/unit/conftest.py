@@ -843,7 +843,7 @@ MENEO = """
                                                                                        src="https://mnmstatic.net/v_142/img/g.gif"/></a>
                 por <a href="/user/{author}/history">{author}</a> a <span class="showmytitle"
                                                                   title="http://www-128.ibm.com/developerworks/library/j-ruby/?ca=dgr-lnxw01RubyOffRails">www-128.ibm.com</span>
-                  <span class="ts visible" data-ts="1135515250" title="enviado: ">____</span> publicado: <span
+                  <span class="ts visible" data-ts="{timestamp}" title="enviado: ">____</span> publicado: <span
                         class="ts visible" data-ts="1135542302" title="publicado: ">____</span></div>
             <div class="news-content">Interesante artículo de IBM Developer Works sobre ruby (sin Rails) claramente
                 orientado a programadores de Java
@@ -859,11 +859,11 @@ MENEO = """
                     class="votes-down" data-placement="top" data-toggle="tooltip" title="Votos negativos"><i
                     class="fa fa-arrow-circle-down"></i> <span id="a-neg-1382"><strong>0</strong></span></span> <span
                     class="tool karma" data-placement="top" data-toggle="tooltip" title="Karma"> <span
-                    class="karma-letter">K</span> <span class="karma-value" id="a-karma-1382">  165  </span> </span>
+                    class="karma-letter">K</span> <span class="karma-value" id="a-karma-1382">  {karma}  </span> </span>
                 <span class="tool sub-name"> <a class="subname" href="/m/mnm">mnm</a> </span></div>
             <div class="news-details-main"><a class="comments" href="/story/ruby-off-the-rails"
                                               title="comentarios de: «{title}»"> <i
-                    class="fa fa-comments"></i>sin comentarios </a>
+                    class="fa fa-comments"></i>{n_comments} comentarios </a>
                 <button class="social-share"><i class="fa fa-share-alt"></i>compartir</button>
                 <div class="wrapper-share-icons hide">
                     <ul class="share-icons" data-title="{title}"
@@ -1002,8 +1002,10 @@ PROMOTED = """
 """
 
 
-def create_meneo(author, title, votes):
-    return MENEO.format(author=author, title=title, votes=votes)
+def create_meneo(author, title, votes, n_comments, timestamp, karma):
+    return MENEO.format(author=author, title=title, votes=votes,
+                        n_comments=n_comments, timestamp=timestamp,
+                        karma=karma)
 
 
 def create_page(author, title, n_meneos=10):
@@ -1019,11 +1021,26 @@ def create_page(author, title, n_meneos=10):
 def valid_meneo():
     meneo_str = create_meneo(author='paco',
                              title='Ruby off the Rails',
-                             votes='24')
+                             votes='24',
+                             n_comments='1123',
+                             karma='165',
+                             timestamp='1135515250')
     bs_tag = bs4.BeautifulSoup(meneo_str, "html.parser")
     meneo = Meneo(bs_tag)
     return meneo
 
+
+@pytest.fixture(scope='session')
+def no_comments_meneo():
+    meneo_str = create_meneo(author='paco',
+                             title='Ruby off the Rails',
+                             votes='24',
+                             n_comments='sin',
+                             karma='165',
+                             timestamp='1135515250')
+    bs_tag = bs4.BeautifulSoup(meneo_str, "html.parser")
+    meneo = Meneo(bs_tag)
+    return meneo
 
 @pytest.fixture(scope='session')
 def valid_page():
