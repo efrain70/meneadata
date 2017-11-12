@@ -17,7 +17,7 @@
 ## Introducción <a name="introduction"></a>
 
 Este proyecto nace por la necesidad de poder obtener los datos
-publicados en el sitio web <a href="https://www.meneame.net/" target="_blank"> Menéame</a> .
+publicados en el sitio web <a href="https://www.meneame.net/" target="_blank"> Menéame</a>.
 
 ### Qué es menéame <a name="meneame"></a>
 Menéame es un sitio web donde los usuarios registrados envían noticias (meneos) que pueden ser votadas
@@ -44,6 +44,16 @@ de los datos publicados en el sitio.
 
 ## Instalación <a name="installation"></a>
 
+El código fuente está publicado bajo licencia GNU Affero General (versión 3) en 
+<a href="https://github.com/efrain70/meneadata" target="_blank"> GitHub</a>.
+
+Para instalarlo sólo es necesario clonar el repositorio:
+
+`$ git clone https://github.com/efrain70/meneadata.git`
+
+Y usando <a href="https://pip.pypa.io/en/stable/" target="_blank"> PIP</a>, configurarlo localmente:
+
+`$ pip install -e meneadata`
 
 ## Cómo usarlo <a name="usage"></a>
 ## Colaborar  <a name="contributing"></a>
