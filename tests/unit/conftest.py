@@ -1062,6 +1062,6 @@ def list_of_pages(empty_page_response):
              for index in range(n_pages)]
 
     pages = [mock.MagicMock(text=page, spec=requests.Response)
-            for page in pages]
+             for page in pages]
     pages.append(empty_page_response)
     return pages
